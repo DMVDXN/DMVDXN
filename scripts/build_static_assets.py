@@ -26,8 +26,8 @@ RELEASES = [
     # slug, line1, line2, tag, catalog, bg1, bg2, accent
     ("socialsense-ai", "SOCIALSENSE", "AI", "AI · VR · WELLBEING", "DMV-001", "#0f3d2a", "#06140e", "#1ED760"),
     ("icon-history", "ICON", "HISTORY", "AI · EDUCATION", "DMV-002", "#3a2a10", "#120c05", "#F5B942"),
-    ("guard", "GUARD", "", "RESPONSIBLE AI", "DMV-003", "#13294a", "#060c17", "#5AA9FF"),
-    ("collision-course", "COLLISION", "COURSE", "UNITY · VR", "DMV-004", "#3d1420", "#14060a", "#FF5C7A"),
+    ("guard", "GUARD", "", "RESPONSIBLE AI", "DMV-003", "#3d1420", "#14060a", "#FF5C7A"),
+    ("collision-course", "COLLISION", "COURSE", "UNITY · VR", "DMV-004", "#13294a", "#060c17", "#5AA9FF"),
     ("lyris", "LYRIS", "", "AI · LYRICS · POETRY", "BONUS-01", "#2a1745", "#0c0716", "#B98CFF"),
     ("cover-crazy", "COVER", "CRAZY", "ALBUM ART · BINGO", "BONUS-02", "#0f3d2a", "#06140e", "#1ED760"),
     ("roar-and-rhythm", "ROAR &", "RHYTHM", "POETRY · MUSIC · ART", "BONUS-03", "#14306b", "#070f22", "#F47B20"),
@@ -58,19 +58,23 @@ def write(rel, content):
 
 # ------------------------------------------------------------------ track headers
 def track_header(num, title, sub, dur, frac):
-    m, s = map(int, dur.split(":"))
-    el = int((m * 60 + s) * frac)
+    # Everything is aligned to one horizontal center line (CY): play button, the
+    # label+title block, the progress row (times sit beside the bar) and the EQ.
+    CY = 46
+    m, s_ = map(int, dur.split(":"))
+    el = int((m * 60 + s_) * frac)
+    bar_x, bar_w = 624, 270
     css = (".p{transform-origin:left;animation:prog 6s linear infinite}"
            "@keyframes prog{from{transform:scaleX(.02)}to{transform:scaleX(1)}}")
     body = f"""<rect x="1" y="1" width="1098" height="90" rx="16" fill="url(#bg)" stroke="{STROKE}"/>
-<circle cx="52" cy="46" r="24" fill="{GREEN}"/><path d="M45 34 L62 46 L45 58 Z" fill="{BG_DARK}"/>
-<text x="94" y="35" fill="{GREEN}" font-family="{MONO}" font-size="13" letter-spacing="3">TRACK {num}  ·  {esc(sub.upper())}</text>
-<text x="94" y="66" fill="#fff" font-family="{FONT}" font-weight="700" font-size="28">{esc(title)}</text>
-<rect x="560" y="44" width="330" height="4" rx="2" fill="#284839"/>
-<g transform="translate(560 44)"><rect class="p" width="330" height="4" rx="2" fill="url(#ln)" style="animation-delay:-{frac * 6:.2f}s"/></g>
-<text x="560" y="68" fill="{MUTED}" font-family="{MONO}" font-size="12">{el // 60:02d}:{el % 60:02d}</text>
-<text x="890" y="68" fill="{MUTED}" font-family="{MONO}" font-size="12" text-anchor="end">{dur}</text>
-{eq_bars(935, 66, 15, [30, 18, 38, 24, 34, 14, 28, 40, 20, 32])}"""
+<circle cx="52" cy="{CY}" r="24" fill="{GREEN}"/><path d="M45 {CY - 12} L62 {CY} L45 {CY + 12} Z" fill="{BG_DARK}"/>
+<text x="94" y="{CY - 14}" fill="{GREEN}" font-family="{MONO}" font-size="13" letter-spacing="3">TRACK {num}  ·  {esc(sub.upper())}</text>
+<text x="94" y="{CY + 17}" fill="#fff" font-family="{FONT}" font-weight="700" font-size="28">{esc(title)}</text>
+<text x="{bar_x - 12}" y="{CY}" dominant-baseline="central" fill="{MUTED}" font-family="{MONO}" font-size="13" text-anchor="end">{el // 60:02d}:{el % 60:02d}</text>
+<rect x="{bar_x}" y="{CY - 2}" width="{bar_w}" height="4" rx="2" fill="#284839"/>
+<g transform="translate({bar_x} {CY - 2})"><rect class="p" width="{bar_w}" height="4" rx="2" fill="url(#ln)" style="animation-delay:-{frac * 6:.2f}s"/></g>
+<text x="{bar_x + bar_w + 12}" y="{CY}" dominant-baseline="central" fill="{MUTED}" font-family="{MONO}" font-size="13">{dur}</text>
+{eq_bars(966, 0, 12, [30, 18, 38, 24, 34, 14, 28, 40, 20, 32], center=CY)}"""
     return svg_doc(1100, 92, f"Track {num}: {title}", body, css)
 
 
@@ -107,13 +111,13 @@ def outro():
     body = f"""<rect x="1" y="1" width="1098" height="118" rx="18" fill="url(#bg)" stroke="{STROKE}"/>
 <rect x="24" y="22" width="76" height="76" rx="10" fill="{GREEN}"/>
 <text x="62" y="70" fill="{BG_DARK}" font-family="{FONT}" font-weight="800" font-size="30" text-anchor="middle">+</text>
-<text x="120" y="48" fill="#fff" font-family="{FONT}" font-weight="700" font-size="22">Your Idea (feat. Daniel Onyejiekwe)</text>
-<text x="120" y="76" fill="{MUTED}" font-family="{MONO}" font-size="13" letter-spacing="2">UP NEXT  ·  UNRELEASED  ·  OPEN TO COLLABS</text>
+<text x="120" y="54" fill="#fff" font-family="{FONT}" font-weight="700" font-size="22">Your Idea (feat. Daniel Onyejiekwe)</text>
+<text x="120" y="80" fill="{MUTED}" font-family="{MONO}" font-size="13" letter-spacing="2">UP NEXT  ·  UNRELEASED  ·  OPEN TO COLLABS</text>
 <g fill="{TEXT}"><path d="M640 48 h4 v24 h-4z M666 48 L648 60 L666 72z"/>
 <circle cx="710" cy="60" r="22" fill="{GREEN}"/>
 <rect x="702" y="50" width="5" height="20" rx="1" fill="{BG_DARK}"/><rect x="713" y="50" width="5" height="20" rx="1" fill="{BG_DARK}"/>
 <path d="M754 48 L772 60 L754 72z M776 48 h4 v24 h-4z"/></g>
-{eq_bars(840, 82, 26, [30, 18, 44, 24, 38, 14, 28, 46, 20, 34, 40, 16])}"""
+{eq_bars(840, 0, 26, [30, 18, 44, 24, 38, 14, 28, 46, 20, 34, 40, 16], center=60)}"""
     return svg_doc(1100, 120, "Now playing: Your Idea (feat. Daniel Onyejiekwe). Up next, open to collabs.", body)
 
 

@@ -48,12 +48,16 @@ def http_json(url, **kw):
 GQL = """
 query($login:String!){
   user(login:$login){
+    followers{ totalCount }
     contributionsCollection{
+      totalCommitContributions totalPullRequestContributions totalIssueContributions
+      totalPullRequestReviewContributions restrictedContributionsCount
       contributionCalendar{ totalContributions weeks{ contributionDays{ date contributionCount } } }
       commitContributionsByRepository(maxRepositories:10){ repository{ name } contributions{ totalCount } }
     }
     repositories(first:100, ownerAffiliations:OWNER, isFork:false){
-      nodes{ name languages(first:10, orderBy:{field:SIZE, direction:DESC}){ edges{ size node{ name color } } } }
+      totalCount
+      nodes{ name stargazerCount languages(first:10, orderBy:{field:SIZE, direction:DESC}){ edges{ size node{ name color } } } }
     }
   }
 }"""
@@ -76,8 +80,13 @@ def fetch_github(user, token):
         for e in node["languages"]["edges"]:
             langs[e["node"]["name"]] += e["size"]
             colors[e["node"]["name"]] = e["node"]["color"] or GREEN
+    stats = {"stars": sum(n["stargazerCount"] for n in u["repositories"]["nodes"]),
+             "commits": cc["totalCommitContributions"] + cc["restrictedContributionsCount"],
+             "prs": cc["totalPullRequestContributions"], "issues": cc["totalIssueContributions"],
+             "reviews": cc["totalPullRequestReviewContributions"],
+             "repos": u["repositories"]["totalCount"], "followers": u["followers"]["totalCount"]}
     return {"total": cc["contributionCalendar"]["totalContributions"], "days": days,
-            "repos": repos, "langs": langs, "colors": colors}
+            "repos": repos, "langs": langs, "colors": colors, "stats": stats}
 
 
 def demo_github():
@@ -91,7 +100,8 @@ def demo_github():
     return {"total": sum(c for _, c in days), "days": days,
             "repos": [("AudioVista", 120), ("Lyris", 80), ("Nexum", 40)],
             "langs": Counter({"TypeScript": 900, "Python": 400, "Kotlin": 100}),
-            "colors": {"TypeScript": "#3178c6", "Python": "#3572A5", "Kotlin": "#A97BFF"}}
+            "colors": {"TypeScript": "#3178c6", "Python": "#3572A5", "Kotlin": "#A97BFF"},
+            "stats": {"stars": 12, "commits": 640, "prs": 25, "issues": 8, "reviews": 4, "repos": 21, "followers": 3}}
 
 
 def summarize(gh):
@@ -304,6 +314,58 @@ def sequencer_svg(gh, s):
                          f"{s['total']} contributions", "\n".join(p), css)
 
 
+# ================================================================== Listening stats + top genres
+def stats_svg(gh, s):
+    st = gh["stats"]
+    W, H = 540, 250
+    rows = [("TOTAL STARS", "Fan favorites", st["stars"]),
+            ("COMMITS", "Tracks laid down, past year", st["commits"]),
+            ("PULL REQUESTS", "Collabs submitted", st["prs"]),
+            ("ISSUES", "Notes from the booth", st["issues"]),
+            ("REPOSITORIES", "Albums in the catalog", st["repos"])]
+    p = [f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="18" fill="url(#bg)" stroke="{STROKE}"/>',
+         f'<text x="26" y="40" fill="{GREEN}" font-family="{MONO}" font-size="13" letter-spacing="3">LISTENING STATS</text>',
+         eq_bars(W - 96, 0, 8, [18, 10, 22, 12, 20, 8, 16, 24], center=35)]
+    mx = max(r[2] for r in rows) or 1
+    for i, (label, sub, val) in enumerate(rows):
+        y = 80 + i * 36
+        p.append(f'<text x="26" y="{y}" fill="#fff" font-family="{FONT}" font-weight="700" font-size="14">{label}</text>')
+        p.append(f'<text x="26" y="{y + 15}" fill="#5f7a6d" font-family="{FONT}" font-size="11">{esc(sub)}</text>')
+        p.append(f'<rect x="250" y="{y - 6}" width="190" height="6" rx="3" fill="#1b2a23"/>')
+        p.append(f'<rect x="250" y="{y - 6}" width="{max(6, 190 * math.sqrt(val / mx)):.0f}" height="6" rx="3" fill="url(#ln)"/>')
+        p.append(f'<text x="{W - 26}" y="{y}" fill="#fff" font-family="{MONO}" font-weight="700" font-size="16" '
+                 f'text-anchor="end">{val:,}</text>')
+    return svg_doc(W, H, "Listening stats: " + ", ".join(f"{r[2]} {r[0].lower()}" for r in rows), "\n".join(p))
+
+
+def langs_svg(gh):
+    W, H = 540, 250
+    top = gh["langs"].most_common(6)
+    tot = sum(gh["langs"].values()) or 1
+    p = [f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="18" fill="url(#bg)" stroke="{STROKE}"/>',
+         f'<text x="26" y="40" fill="{GREEN}" font-family="{MONO}" font-size="13" letter-spacing="3">TOP GENRES</text>',
+         f'<text x="{W - 26}" y="40" fill="#5f7a6d" font-family="{MONO}" font-size="11" text-anchor="end">LANGUAGES · BY CODE SIZE</text>']
+    # one stacked "mix" bar
+    x = 26
+    for name, v in top:
+        w = (W - 52) * v / tot
+        p.append(f'<rect x="{x:.1f}" y="56" width="{max(w - 2, 1):.1f}" height="10" rx="3" fill="{gh["colors"].get(name, GREEN)}"/>')
+        x += w
+    # faders, two columns
+    for i, (name, v) in enumerate(top):
+        col, row = i % 2, i // 2
+        fx = 26 + col * 252
+        y = 100 + row * 44
+        pct = 100 * v / tot
+        color = gh["colors"].get(name, GREEN)
+        p.append(f'<circle cx="{fx + 6}" cy="{y - 5}" r="6" fill="{color}"/>')
+        p.append(f'<text x="{fx + 20}" y="{y}" fill="#fff" font-family="{FONT}" font-weight="700" font-size="14">{esc(fit(name, 16))}</text>')
+        p.append(f'<text x="{fx + 230}" y="{y}" fill="{TEXT}" font-family="{MONO}" font-size="13" text-anchor="end">{pct:.1f}%</text>')
+        p.append(f'<rect x="{fx}" y="{y + 10}" width="230" height="5" rx="2.5" fill="#1b2a23"/>')
+        p.append(f'<rect x="{fx}" y="{y + 10}" width="{max(4, 230 * v / top[0][1]):.0f}" height="5" rx="2.5" fill="{color}"/>')
+    return svg_doc(W, H, "Top languages: " + ", ".join(f"{n} {100 * v / tot:.0f}%" for n, v in top), "\n".join(p))
+
+
 # ================================================================== Spotify
 def spotify_now():
     cid, secret, refresh = (os.environ.get(k) for k in
@@ -409,6 +471,8 @@ def main():
     save("wrapped.svg", wrapped_svg(s, user))
     save("waveform.svg", waveform_svg(gh, s))
     save("sequencer.svg", sequencer_svg(gh, s))
+    save("stats.svg", stats_svg(gh, s))
+    save("top-langs.svg", langs_svg(gh))
 
 
 if __name__ == "__main__":

@@ -21,6 +21,7 @@ def esc(s):
 ANIM_CSS = """
 .b{fill:#1ED760;transform-box:fill-box;transform-origin:bottom;animation:eq 1.1s ease-in-out infinite alternate}
 @keyframes eq{0%{transform:scaleY(.25)}50%{transform:scaleY(1)}100%{transform:scaleY(.45)}}
+.bc{fill:#1ED760;transform-box:fill-box;transform-origin:center;animation:eq 1.1s ease-in-out infinite alternate}
 .spin{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 """
@@ -29,12 +30,15 @@ BG_DEFS = """<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-colo
 <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1ED760"/><stop offset="1" stop-color="#78fbb5"/></linearGradient>"""
 
 
-def eq_bars(x0, base, n, heights, w=5, gap=4):
+def eq_bars(x0, base, n, heights, w=5, gap=4, center=None):
+    """Animated equalizer bars. Bottom-aligned on `base`, or centered on y=`center` when given."""
     out = []
     for i in range(n):
         h = heights[i % len(heights)]
+        y = center - h / 2 if center is not None else base - h
+        cls = "bc" if center is not None else "b"
         out.append(
-            f'<rect class="b" x="{x0 + i * (w + gap)}" y="{base - h}" width="{w}" height="{h}" rx="2" '
+            f'<rect class="{cls}" x="{x0 + i * (w + gap)}" y="{y:g}" width="{w}" height="{h}" rx="2" '
             f'style="animation-delay:-{(i * 0.13) % 1.1:.2f}s"/>'
         )
     return "".join(out)

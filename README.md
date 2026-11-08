@@ -5,7 +5,8 @@
   <a href="https://github.com/DMVDXN"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&duration=2800&pause=1100&color=1ED760&center=true&vCenter=true&width=650&height=48&lines=Software+Engineer+%7C+Creative+Technologist;AI+%2B+Human-Centered+Design;Building+at+the+intersection+of+code+%26+creativity;Always+listening.+Always+learning." alt="Animated introduction" /></a>
 
   <img src="assets/equalizer.gif" alt="Animated green music equalizer" width="300" />
-  <img src="assets/advisory.svg" alt="Code advisory: explicit content, contains code" width="88" />
+  <br />
+  <img src="assets/advisory.svg" alt="Code advisory: explicit content, contains code" width="100" />
 
   <p><strong>🎧 Code in Stereo</strong> · Software engineering, human-centered AI, and a lifelong appreciation for music.</p>
 
@@ -112,34 +113,38 @@
   <tr>
     <td width="50%" valign="top" align="center">
       <img src="assets/releases/socialsense-ai.svg" width="200" alt="SocialSense AI album cover" />
-      <h3>🏆 SocialSense AI <sub>(feat. Hax Lab)</sub></h3>
+      <h3>🏆 SocialSense AI<br /><sub>(feat. Hax Lab)</sub></h3>
       <p><kbd>AI</kbd> <kbd>VR</kbd> <kbd>Meta Quest 3</kbd></p>
       <p>Award-winning AI social coaching concept focused on helping people manage social anxiety; built with a four-person team and a Meta Quest 3 prototype.</p>
-      <sub>🎧 <a href="https://www.blackenterprise.com/morgan-state-students-win-tech-innovation-challenge/">Featured in Black Enterprise</a></sub>
     </td>
     <td width="50%" valign="top" align="center">
       <img src="assets/releases/icon-history.svg" width="200" alt="ICON History album cover" />
-      <h3>🏛️ ICON History <sub>(Classroom Mix)</sub></h3>
+      <h3>🏛️ ICON History<br /><sub>(Classroom Mix)</sub></h3>
       <p><kbd>AI</kbd> <kbd>EdTech</kbd> <kbd>History</kbd></p>
       <p>AI-powered interactive history learning, combining conversation and educational experiences.</p>
-      <sub>🎧 <a href="https://icon-history.com/">Listen live</a></sub>
     </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><a href="https://www.blackenterprise.com/morgan-state-students-win-tech-innovation-challenge/"><img src="https://img.shields.io/badge/Press_%C2%B7_Black_Enterprise-111111?style=for-the-badge" alt="Featured in Black Enterprise" /></a></td>
+    <td align="center" valign="middle"><a href="https://icon-history.com/"><img src="https://img.shields.io/badge/%E2%96%B6_Listen_Live-1DB954?style=for-the-badge" alt="Listen live" /></a></td>
   </tr>
   <tr>
     <td width="50%" valign="top" align="center">
       <img src="assets/releases/guard.svg" width="200" alt="GUARD album cover" />
-      <h3>🛡️ GUARD <sub>(Red Team Mix)</sub></h3>
+      <h3>🛡️ GUARD<br /><sub>(Red Team Mix)</sub></h3>
       <p><kbd>Responsible AI</kbd> <kbd>LLMs</kbd> <kbd>Red Teaming</kbd></p>
       <p>Responsible AI research at Morgan State: a Claude skill (GUARD.md) that corrects categorical gist substitution in how large language models characterize institutions. I served as red team leader.</p>
-      <sub>🎧 <a href="https://www.morgan.edu/tepd/guard/">Project page</a> · <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=KM0qeRkAAAAJ&citation_for_view=KM0qeRkAAAAJ:u5HHmVD_uO8C">Read the paper</a></sub>
     </td>
     <td width="50%" valign="top" align="center">
       <img src="assets/releases/collision-course.svg" width="200" alt="Collision Course album cover" />
-      <h3>🥽 Collision Course <sub>(VR Edition)</sub></h3>
+      <h3>🥽 Collision Course<br /><sub>(VR Edition)</sub></h3>
       <p><kbd>Unity</kbd> <kbd>VR</kbd> <kbd>Health</kbd></p>
       <p>Immersive Unity VR concussion-awareness and training experience.</p>
-      <sub>🎧 <em>Unreleased: built, not yet deployed · demo on request</em></sub>
     </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><a href="https://www.morgan.edu/tepd/guard/"><img src="https://img.shields.io/badge/Project_Page-F47B20?style=for-the-badge" alt="GUARD project page" /></a> <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=KM0qeRkAAAAJ&citation_for_view=KM0qeRkAAAAJ:u5HHmVD_uO8C"><img src="https://img.shields.io/badge/Read_the_Paper-4285F4?style=for-the-badge&logo=googlescholar&logoColor=white" alt="Read the GUARD paper" /></a></td>
+    <td align="center" valign="middle"><img src="https://img.shields.io/badge/Unreleased_%C2%B7_Demo_on_request-3a4048?style=for-the-badge" alt="Unreleased: built, not yet deployed, demo on request" /></td>
   </tr>
 </table>
 
@@ -151,25 +156,27 @@
   <tr>
     <td width="33%" valign="top" align="center">
       <img src="assets/releases/lyris.svg" width="160" alt="Lyris album cover" />
-      <h3>✍️ Lyris <sub>(Songwriter's Cut)</sub></h3>
+      <h3>✍️ Lyris<br /><sub>(Songwriter's Cut)</sub></h3>
       <p><kbd>AI</kbd> <kbd>TypeScript</kbd> <kbd>Poetry</kbd></p>
       <p>AI-assisted lyric writing, poetry, and creative brainstorming.</p>
-      <sub>🎧 <a href="https://lyris.vercel.app/">Listen live</a> · <a href="https://github.com/DMVDXN/Lyris">GitHub</a></sub>
     </td>
     <td width="33%" valign="top" align="center">
       <img src="assets/releases/cover-crazy.svg" width="160" alt="Cover Crazy album cover" />
-      <h3>🎨 Cover Crazy <sub>(Bingo Remix)</sub></h3>
+      <h3>🎨 Cover Crazy<br /><sub>(Bingo Remix)</sub></h3>
       <p><kbd>Game</kbd> <kbd>TypeScript</kbd> <kbd>Album Art</kbd></p>
       <p>An album cover bingo game for music fans.</p>
-      <sub>🎧 <a href="https://covercrazy.vercel.app/">Listen live</a> · <a href="https://github.com/DMVDXN/CoverCrazy">GitHub</a></sub>
     </td>
     <td width="33%" valign="top" align="center">
       <img src="assets/releases/roar-and-rhythm.svg" width="160" alt="Roar and Rhythm album cover" />
-      <h3>🐻 Roar &amp; Rhythm <sub>(feat. Morgan State Creatives)</sub></h3>
+      <h3>🐻 Roar &amp; Rhythm<br /><sub>(feat. Morgan State Creatives)</sub></h3>
       <p><kbd>Community</kbd> <kbd>JavaScript</kbd> <kbd>Arts</kbd></p>
       <p>A creative hub for poets, musicians, and artists at Morgan State University.</p>
-      <sub>🎧 <a href="https://roarandrhythm.vercel.app/">Listen live</a> · <a href="https://github.com/DMVDXN/MSU_Roar_and_Rhythm">GitHub</a></sub>
     </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><a href="https://lyris.vercel.app/"><img src="https://img.shields.io/badge/%E2%96%B6_Listen_Live-1DB954?style=for-the-badge" alt="Listen live" /></a> <a href="https://github.com/DMVDXN/Lyris"><img src="https://img.shields.io/badge/Source-191414?style=for-the-badge&logo=github&logoColor=white" alt="GitHub source" /></a></td>
+    <td align="center" valign="middle"><a href="https://covercrazy.vercel.app/"><img src="https://img.shields.io/badge/%E2%96%B6_Listen_Live-1DB954?style=for-the-badge" alt="Listen live" /></a> <a href="https://github.com/DMVDXN/CoverCrazy"><img src="https://img.shields.io/badge/Source-191414?style=for-the-badge&logo=github&logoColor=white" alt="GitHub source" /></a></td>
+    <td align="center" valign="middle"><a href="https://roarandrhythm.vercel.app/"><img src="https://img.shields.io/badge/%E2%96%B6_Listen_Live-1DB954?style=for-the-badge" alt="Listen live" /></a> <a href="https://github.com/DMVDXN/MSU_Roar_and_Rhythm"><img src="https://img.shields.io/badge/Source-191414?style=for-the-badge&logo=github&logoColor=white" alt="GitHub source" /></a></td>
   </tr>
 </table>
 
@@ -212,10 +219,11 @@
 
 <img src="https://raw.githubusercontent.com/DMVDXN/DMVDXN/cards/waveform.svg" width="100%" alt="Past year of GitHub contributions drawn as an audio waveform" />
 
-<div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=DMVDXN&show_icons=true&hide_border=true&bg_color=0D1117&title_color=1ED760&icon_color=1ED760&text_color=C9D1D9&custom_title=DMVDXN%27s%20Listening%20Stats" alt="GitHub statistics" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DMVDXN&layout=compact&hide_border=true&bg_color=0D1117&title_color=1ED760&text_color=C9D1D9&custom_title=Top%20Genres%20(Languages)" alt="Top GitHub languages" />
-</div>
+<!-- Stats + top languages are built by .github/workflows/music-cards.yml (no third-party service) -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DMVDXN/DMVDXN/cards/stats.svg" width="49%" alt="GitHub listening stats: stars, commits, pull requests, issues, repositories" />
+  <img src="https://raw.githubusercontent.com/DMVDXN/DMVDXN/cards/top-langs.svg" width="49%" alt="Top languages by code size" />
+</p>
 
 <!-- Beat machine: contribution calendar as a step sequencer, rebuilt by .github/workflows/music-cards.yml -->
 <img src="https://raw.githubusercontent.com/DMVDXN/DMVDXN/cards/sequencer.svg" width="100%" alt="Past year of GitHub contributions shown as a drum machine step sequencer" />
