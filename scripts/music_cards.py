@@ -31,7 +31,7 @@ from svg_common import (BG_DARK, FONT, GREEN, MONO, MUTED, STROKE, TEXT,
 
 UA = {"User-Agent": "code-in-stereo-cards"}
 # Markup/styling languages inflate the language mix on static sites, so leave them out.
-HIDDEN_LANGS = {"HTML", "CSS", "SCSS", "Sass", "Less"}
+HIDDEN_LANGS = {"HTML", "CSS", "SCSS", "Sass", "Less", "Batchfile", "PowerShell", "Procfile", "Makefile"}
 
 
 # ================================================================== HTTP helpers
@@ -89,6 +89,9 @@ def fetch_github(user, token):
              "prs": cc["totalPullRequestContributions"], "issues": cc["totalIssueContributions"],
              "reviews": cc["totalPullRequestReviewContributions"],
              "repos": u["repositories"]["totalCount"], "followers": u["followers"]["totalCount"]}
+    # drop trace amounts (< 1% of all code) so the cards only show real languages
+    tot = sum(langs.values()) or 1
+    langs = Counter({k: v for k, v in langs.items() if v / tot >= 0.01})
     return {"total": cc["contributionCalendar"]["totalContributions"], "days": days,
             "repos": repos, "langs": langs, "colors": colors, "stats": stats}
 
