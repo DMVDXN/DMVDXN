@@ -91,11 +91,11 @@
 
 🎛️ **CH 1 · Lead Vocals** · *languages*
 
-<img src="https://skillicons.dev/icons?i=python,js,ts,java,cs&theme=dark" alt="Python JavaScript TypeScript Java C sharp" />
+<img src="https://skillicons.dev/icons?i=python,js,ts,java,kotlin,cs&theme=dark" alt="Python JavaScript TypeScript Java Kotlin C sharp" />
 
 🎹 **CH 2 · Instruments** · *frameworks and creative tools*
 
-<img src="https://skillicons.dev/icons?i=react,nextjs,flask,nodejs,unity&theme=dark" alt="React Next.js Flask Node.js Unity" />
+<img src="https://skillicons.dev/icons?i=react,nextjs,flask,nodejs,unity,androidstudio&theme=dark" alt="React Next.js Flask Node.js Unity Android Studio" />
 
 🎚️ **CH 3 · Mastering Rack** · *data, cloud and workflow*
 

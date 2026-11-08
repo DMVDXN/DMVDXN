@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # lets the keep-alive step re-enable this workflow
 
 concurrency:
   group: music-cards
@@ -44,3 +45,10 @@ jobs:
           jekyll: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # GitHub pauses scheduled workflows after 60 days without repo activity.
+      # Re-enabling the workflow through the API resets that timer.
+      - name: Keep the schedule alive
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/music-cards.yml/enable"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

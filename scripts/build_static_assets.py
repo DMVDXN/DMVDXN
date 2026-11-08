@@ -68,12 +68,12 @@ def track_header(num, title, sub, dur, frac):
            "@keyframes prog{from{transform:scaleX(.02)}to{transform:scaleX(1)}}")
     body = f"""<rect x="1" y="1" width="1098" height="90" rx="16" fill="url(#bg)" stroke="{STROKE}"/>
 <circle cx="52" cy="{CY}" r="24" fill="{GREEN}"/><path d="M45 {CY - 12} L62 {CY} L45 {CY + 12} Z" fill="{BG_DARK}"/>
-<text x="94" y="{CY - 14}" fill="{GREEN}" font-family="{MONO}" font-size="13" letter-spacing="3">TRACK {num}  ·  {esc(sub.upper())}</text>
-<text x="94" y="{CY + 17}" fill="#fff" font-family="{FONT}" font-weight="700" font-size="28">{esc(title)}</text>
-<text x="{bar_x - 12}" y="{CY}" dominant-baseline="central" fill="{MUTED}" font-family="{MONO}" font-size="13" text-anchor="end">{el // 60:02d}:{el % 60:02d}</text>
+<text x="94" y="{CY - 15}" fill="{GREEN}" font-family="{MONO}" font-size="15" font-weight="700" letter-spacing="3">TRACK {num}  ·  {esc(sub.upper())}</text>
+<text x="94" y="{CY + 19}" fill="#fff" font-family="{FONT}" font-weight="700" font-size="30">{esc(title)}</text>
+<text x="{bar_x - 12}" y="{CY}" dominant-baseline="central" fill="{MUTED}" font-family="{MONO}" font-size="14" text-anchor="end">{el // 60:02d}:{el % 60:02d}</text>
 <rect x="{bar_x}" y="{CY - 2}" width="{bar_w}" height="4" rx="2" fill="#284839"/>
 <g transform="translate({bar_x} {CY - 2})"><rect class="p" width="{bar_w}" height="4" rx="2" fill="url(#ln)" style="animation-delay:-{frac * 6:.2f}s"/></g>
-<text x="{bar_x + bar_w + 12}" y="{CY}" dominant-baseline="central" fill="{MUTED}" font-family="{MONO}" font-size="13">{dur}</text>
+<text x="{bar_x + bar_w + 12}" y="{CY}" dominant-baseline="central" fill="{MUTED}" font-family="{MONO}" font-size="14">{dur}</text>
 {eq_bars(966, 0, 12, [30, 18, 38, 24, 34, 14, 28, 40, 20, 32], center=CY)}"""
     return svg_doc(1100, 92, f"Track {num}: {title}", body, css)
 

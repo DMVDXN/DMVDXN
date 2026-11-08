@@ -30,6 +30,8 @@ from svg_common import (BG_DARK, FONT, GREEN, MONO, MUTED, STROKE, TEXT,
                         eq_bars, esc, svg_doc)
 
 UA = {"User-Agent": "code-in-stereo-cards"}
+# Markup/styling languages inflate the language mix on static sites, so leave them out.
+HIDDEN_LANGS = {"HTML", "CSS", "SCSS", "Sass", "Less"}
 
 
 # ================================================================== HTTP helpers
@@ -78,6 +80,8 @@ def fetch_github(user, token):
     langs, colors = Counter(), {}
     for node in u["repositories"]["nodes"]:
         for e in node["languages"]["edges"]:
+            if e["node"]["name"] in HIDDEN_LANGS:
+                continue
             langs[e["node"]["name"]] += e["size"]
             colors[e["node"]["name"]] = e["node"]["color"] or GREEN
     stats = {"stars": sum(n["stargazerCount"] for n in u["repositories"]["nodes"]),
@@ -195,9 +199,9 @@ def wrapped_svg(s, user):
         p.append(f'<g transform="translate({tx} {ty})">'
                  f'<rect width="{tw}" height="{th}" rx="16" fill="{acc}" fill-opacity=".13" stroke="{acc}" stroke-opacity=".45"/>'
                  f'<rect x="18" y="20" width="28" height="4" rx="2" fill="{acc}"/>'
-                 f'<text x="18" y="50" fill="{acc}" font-family="{MONO}" font-size="12" letter-spacing="2">{label}</text>'
+                 f'<text x="18" y="50" fill="{acc}" font-family="{MONO}" font-size="13" letter-spacing="2">{label}</text>'
                  f'<text x="18" y="{98 + (34 - fs) // 3}" fill="#fff" font-family="{FONT}" font-weight="800" font-size="{fs}">{esc(value)}</text>'
-                 f'<text x="18" y="140" fill="{MUTED}" font-family="{FONT}" font-size="13">{esc(sub)}</text></g>')
+                 f'<text x="18" y="140" fill="{MUTED}" font-family="{FONT}" font-size="14">{esc(sub)}</text></g>')
     return svg_doc(W, H, f"{user} Wrapped {year}: {s['total']} contributions, top language {s['top_lang']}, "
                          f"most active repo {s['top_repo']}, longest streak {s['longest']} days", "\n".join(p))
 
@@ -318,10 +322,10 @@ def sequencer_svg(gh, s):
 def stats_svg(gh, s):
     st = gh["stats"]
     W, H = 540, 250
-    rows = [("TOTAL STARS", "Fan favorites", st["stars"]),
-            ("COMMITS", "Tracks laid down, past year", st["commits"]),
+    rows = [("COMMITS", "Tracks laid down, past year", st["commits"]),
+            ("ACTIVE DAYS", "Days in the studio, past year", s["active_days"]),
+            ("LONGEST STREAK", "Days in a row on the mic", s["longest"]),
             ("PULL REQUESTS", "Collabs submitted", st["prs"]),
-            ("ISSUES", "Notes from the booth", st["issues"]),
             ("REPOSITORIES", "Albums in the catalog", st["repos"])]
     p = [f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="18" fill="url(#bg)" stroke="{STROKE}"/>',
          f'<text x="26" y="40" fill="{GREEN}" font-family="{MONO}" font-size="13" letter-spacing="3">LISTENING STATS</text>',
@@ -330,7 +334,7 @@ def stats_svg(gh, s):
     for i, (label, sub, val) in enumerate(rows):
         y = 80 + i * 36
         p.append(f'<text x="26" y="{y}" fill="#fff" font-family="{FONT}" font-weight="700" font-size="14">{label}</text>')
-        p.append(f'<text x="26" y="{y + 15}" fill="#5f7a6d" font-family="{FONT}" font-size="11">{esc(sub)}</text>')
+        p.append(f'<text x="26" y="{y + 15}" fill="#5f7a6d" font-family="{FONT}" font-size="12">{esc(sub)}</text>')
         p.append(f'<rect x="250" y="{y - 6}" width="190" height="6" rx="3" fill="#1b2a23"/>')
         p.append(f'<rect x="250" y="{y - 6}" width="{max(6, 190 * math.sqrt(val / mx)):.0f}" height="6" rx="3" fill="url(#ln)"/>')
         p.append(f'<text x="{W - 26}" y="{y}" fill="#fff" font-family="{MONO}" font-weight="700" font-size="16" '

@@ -11,11 +11,11 @@
 <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1ED760"/><stop offset="1" stop-color="#78fbb5"/></linearGradient></defs>
 <rect x="1" y="1" width="1098" height="90" rx="16" fill="url(#bg)" stroke="#255844"/>
 <circle cx="52" cy="46" r="24" fill="#1ED760"/><path d="M45 34 L62 46 L45 58 Z" fill="#0d1117"/>
-<text x="94" y="32" fill="#1ED760" font-family="'Courier New', monospace" font-size="13" letter-spacing="3">TRACK 01  ·  INTRO</text>
-<text x="94" y="63" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="28">Behind the Headphones</text>
-<text x="612" y="46" dominant-baseline="central" fill="#99b0a4" font-family="'Courier New', monospace" font-size="13" text-anchor="end">00:25</text>
+<text x="94" y="31" fill="#1ED760" font-family="'Courier New', monospace" font-size="15" font-weight="700" letter-spacing="3">TRACK 01  ·  INTRO</text>
+<text x="94" y="65" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="30">Behind the Headphones</text>
+<text x="612" y="46" dominant-baseline="central" fill="#99b0a4" font-family="'Courier New', monospace" font-size="14" text-anchor="end">00:25</text>
 <rect x="624" y="44" width="270" height="4" rx="2" fill="#284839"/>
 <g transform="translate(624 44)"><rect class="p" width="270" height="4" rx="2" fill="url(#ln)" style="animation-delay:-1.80s"/></g>
-<text x="906" y="46" dominant-baseline="central" fill="#99b0a4" font-family="'Courier New', monospace" font-size="13">01:26</text>
+<text x="906" y="46" dominant-baseline="central" fill="#99b0a4" font-family="'Courier New', monospace" font-size="14">01:26</text>
 <rect class="bc" x="966" y="31" width="5" height="30" rx="2" style="animation-delay:-0.00s"/><rect class="bc" x="975" y="37" width="5" height="18" rx="2" style="animation-delay:-0.13s"/><rect class="bc" x="984" y="27" width="5" height="38" rx="2" style="animation-delay:-0.26s"/><rect class="bc" x="993" y="34" width="5" height="24" rx="2" style="animation-delay:-0.39s"/><rect class="bc" x="1002" y="29" width="5" height="34" rx="2" style="animation-delay:-0.52s"/><rect class="bc" x="1011" y="39" width="5" height="14" rx="2" style="animation-delay:-0.65s"/><rect class="bc" x="1020" y="32" width="5" height="28" rx="2" style="animation-delay:-0.78s"/><rect class="bc" x="1029" y="26" width="5" height="40" rx="2" style="animation-delay:-0.91s"/><rect class="bc" x="1038" y="36" width="5" height="20" rx="2" style="animation-delay:-1.04s"/><rect class="bc" x="1047" y="30" width="5" height="32" rx="2" style="animation-delay:-0.07s"/><rect class="bc" x="1056" y="31" width="5" height="30" rx="2" style="animation-delay:-0.20s"/><rect class="bc" x="1065" y="37" width="5" height="18" rx="2" style="animation-delay:-0.33s"/>
 </svg>
