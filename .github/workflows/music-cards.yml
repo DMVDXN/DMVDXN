@@ -1,0 +1,46 @@
+name: Generate music cards
+
+# Builds now-playing.svg (Spotify), wrapped.svg and waveform.svg
+# and publishes them to the `cards` branch, which README.md reads from.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/music_cards.py'
+      - 'scripts/svg_common.py'
+      - '.github/workflows/music-cards.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: music-cards
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build cards
+        run: python3 scripts/music_cards.py dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ${{ github.repository_owner }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+
+      - name: Publish to the cards branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: cards
+          build_dir: dist
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

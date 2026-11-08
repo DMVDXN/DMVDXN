@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 320" width="320" height="320" role="img" aria-labelledby="t">
+<title id="t">Animated turntable spinning a DMVDXN record</title>
+<style>
+.b{fill:#1ED760;transform-box:fill-box;transform-origin:bottom;animation:eq 1.1s ease-in-out infinite alternate}
+@keyframes eq{0%{transform:scaleY(.25)}50%{transform:scaleY(1)}100%{transform:scaleY(.45)}}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#112921"/><stop offset="1" stop-color="#0d1117"/></linearGradient>
+<linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1ED760"/><stop offset="1" stop-color="#78fbb5"/></linearGradient></defs>
+<rect x="6" y="20" width="308" height="282" rx="22" fill="#18201c" stroke="#255844" stroke-width="2"/>
+<rect x="6" y="20" width="308" height="282" rx="22" fill="url(#bg)" opacity=".6"/>
+<circle cx="140" cy="165" r="122" fill="#0b0f0d" stroke="#2c3a33" stroke-width="3"/>
+<g class="spin" style="animation-duration:1.8s">
+<circle cx="140" cy="165" r="114" fill="#080a09"/><circle cx="140" cy="165" r="48" fill="none" stroke="#1d2420" stroke-width="1.5"/><circle cx="140" cy="165" r="57" fill="none" stroke="#1d2420" stroke-width="1.5"/><circle cx="140" cy="165" r="66" fill="none" stroke="#1d2420" stroke-width="1.5"/><circle cx="140" cy="165" r="75" fill="none" stroke="#1d2420" stroke-width="1.5"/><circle cx="140" cy="165" r="84" fill="none" stroke="#1d2420" stroke-width="1.5"/><circle cx="140" cy="165" r="93" fill="none" stroke="#1d2420" stroke-width="1.5"/><circle cx="140" cy="165" r="102" fill="none" stroke="#1d2420" stroke-width="1.5"/><circle cx="140" cy="165" r="111" fill="none" stroke="#1d2420" stroke-width="1.5"/>
+<path d="M140 65 A100 100 0 0 1 235 140" fill="none" stroke="#2a3330" stroke-width="5" opacity=".7"/>
+<circle cx="140" cy="165" r="36" fill="#1ED760"/>
+<text x="140" y="160" fill="#0d1117" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="9" text-anchor="middle">DMVDXN</text>
+<text x="140" y="176" fill="#0d1117" font-family="'Courier New', monospace" font-size="7" text-anchor="middle">33⅓ RPM</text>
+<circle cx="140" cy="165" r="4" fill="#ddd"/></g>
+<circle cx="276" cy="58" r="20" fill="#2c3a33" stroke="#3f5248" stroke-width="2"/><circle cx="276" cy="58" r="7" fill="#9fb3a8"/>
+<path d="M276 58 L282 200 L232 252" fill="none" stroke="#c9d1d9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="216" y="244" width="26" height="16" rx="3" fill="#1ED760" transform="rotate(-45 229 252)"/>
+<circle cx="290" cy="280" r="9" fill="#1ED760"><animate attributeName="opacity" values="1;.35;1" dur="1.6s" repeatCount="indefinite"/></circle>
+<rect x="28" y="276" width="44" height="8" rx="4" fill="#2c3a33"/><rect x="28" y="276" width="28" height="8" rx="4" fill="#1ED760"/>
+</svg>

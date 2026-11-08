@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 330" width="1100" height="330" role="img" aria-labelledby="t">
+<title id="t">Mixtape: Currently Learning VOL. 1. Side A: Algorithms, AI Systems, Thoughtful Software Design. Side B: Human-Centered AI, Accessibility, Immersive Interaction.</title>
+<style>
+.b{fill:#1ED760;transform-box:fill-box;transform-origin:bottom;animation:eq 1.1s ease-in-out infinite alternate}
+@keyframes eq{0%{transform:scaleY(.25)}50%{transform:scaleY(1)}100%{transform:scaleY(.45)}}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#112921"/><stop offset="1" stop-color="#0d1117"/></linearGradient>
+<linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1ED760"/><stop offset="1" stop-color="#78fbb5"/></linearGradient></defs>
+<rect x="1" y="1" width="1098" height="328" rx="20" fill="url(#bg)" stroke="#255844"/>
+<g transform="translate(40 35)">
+<rect width="470" height="260" rx="18" fill="#1b1f24" stroke="#3a4048" stroke-width="2"/>
+<circle cx="14" cy="14" r="5" fill="#3a4048"/>
+<circle cx="456" cy="14" r="5" fill="#3a4048"/>
+<circle cx="14" cy="246" r="5" fill="#3a4048"/>
+<circle cx="456" cy="246" r="5" fill="#3a4048"/>
+<rect x="28" y="22" width="414" height="168" rx="10" fill="#f4ecd8"/>
+<rect x="28" y="22" width="414" height="30" rx="10" fill="#1ED760"/>
+<rect x="28" y="40" width="414" height="12" fill="#1ED760"/>
+<text x="44" y="43" fill="#0d1117" font-family="'Courier New', monospace" font-weight="700" font-size="13" letter-spacing="2">A  ·  C-90  ·  CODE IN STEREO</text>
+<text x="235.0" y="82" fill="#222" font-family="'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive" font-size="24" text-anchor="middle">CURRENTLY LEARNING  VOL. 1</text>
+<rect x="90" y="96" width="290" height="80" rx="40" fill="#0e1013"/>
+<rect x="185" y="112" width="100" height="48" rx="4" fill="#3b2a1d" opacity=".8"/>
+<circle cx="150" cy="136" r="34" fill="#2b1d12"/><g class="spin" style="animation-duration:3s"><circle cx="150" cy="136" r="24" fill="#f2f2f2"/><rect x="147" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(0 150 136)"/><rect x="147" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(60 150 136)"/><rect x="147" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(120 150 136)"/><rect x="147" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(180 150 136)"/><rect x="147" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(240 150 136)"/><rect x="147" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(300 150 136)"/><circle cx="150" cy="136" r="7" fill="#1a1a1a"/></g>
+<circle cx="320" cy="136" r="34" fill="#2b1d12"/><g class="spin" style="animation-duration:3s"><circle cx="320" cy="136" r="24" fill="#f2f2f2"/><rect x="317" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(0 320 136)"/><rect x="317" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(60 320 136)"/><rect x="317" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(120 320 136)"/><rect x="317" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(180 320 136)"/><rect x="317" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(240 320 136)"/><rect x="317" y="114" width="6" height="12" rx="2" fill="#1a1a1a" transform="rotate(300 320 136)"/><circle cx="320" cy="136" r="7" fill="#1a1a1a"/></g>
+<path d="M95 260 L120 208 L350 208 L375 260 Z" fill="#262b31" stroke="#3a4048"/>
+<circle cx="165" cy="234" r="7" fill="#0e1013"/>
+<circle cx="235.0" cy="234" r="7" fill="#0e1013"/>
+<circle cx="305" cy="234" r="7" fill="#0e1013"/>
+</g>
+<text x="560" y="70" fill="#1ED760" font-family="'Courier New', monospace" font-size="13" letter-spacing="3">MIXTAPE · VOL. 1</text>
+<text x="560" y="104" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="30">Currently Learning</text>
+<text x="560" y="138" fill="#99b0a4" font-family="'Courier New', monospace" font-size="12" letter-spacing="3">SIDE A</text>
+<text x="560" y="158" fill="#1ED760" font-family="'Courier New', monospace" font-size="14">01</text>
+<text x="596" y="158" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17">Algorithms</text>
+<line x1="596" y1="166" x2="1050" y2="166" stroke="#203a2e"/>
+<text x="560" y="180" fill="#1ED760" font-family="'Courier New', monospace" font-size="14">02</text>
+<text x="596" y="180" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17">AI Systems</text>
+<line x1="596" y1="188" x2="1050" y2="188" stroke="#203a2e"/>
+<text x="560" y="202" fill="#1ED760" font-family="'Courier New', monospace" font-size="14">03</text>
+<text x="596" y="202" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17">Thoughtful Software Design</text>
+<line x1="596" y1="210" x2="1050" y2="210" stroke="#203a2e"/>
+<text x="560" y="230" fill="#99b0a4" font-family="'Courier New', monospace" font-size="12" letter-spacing="3">SIDE B</text>
+<text x="560" y="250" fill="#1ED760" font-family="'Courier New', monospace" font-size="14">04</text>
+<text x="596" y="250" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17">Human-Centered AI</text>
+<line x1="596" y1="258" x2="1050" y2="258" stroke="#203a2e"/>
+<text x="560" y="272" fill="#1ED760" font-family="'Courier New', monospace" font-size="14">05</text>
+<text x="596" y="272" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17">Accessibility</text>
+<line x1="596" y1="280" x2="1050" y2="280" stroke="#203a2e"/>
+<text x="560" y="294" fill="#1ED760" font-family="'Courier New', monospace" font-size="14">06</text>
+<text x="596" y="294" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="17">Immersive Interaction</text>
+<line x1="596" y1="302" x2="1050" y2="302" stroke="#203a2e"/>
+</svg>
