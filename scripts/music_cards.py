@@ -158,7 +158,7 @@ def wrapped_svg(s, user):
     tiles = [
         ("TOTAL PLAYS", f"{s['total']:,}", "contributions, past 12 months", GREEN),
         ("TOP GENRE", fit(s["top_lang"], 13), "most-written language", s["top_lang_color"]),
-        ("MOST PLAYED", fit(s["top_repo"], 13), f"{s['top_repo_n']} commits", "#B98CFF"),
+        ("MOST PLAYED", fit(s["top_repo"].replace("_", " ").replace("-", " "), 15), f"{s['top_repo_n']} commits", "#B98CFF"),
         ("LONGEST STREAK", f"{s['longest']} days", f"current: {s['current']} days", "#F5B942"),
         ("PEAK MONTH", s["peak_month"], f"{s['peak_month_n']} contributions", "#FF5C7A"),
         ("FAVORITE DAY", s["fav_day"], f"{s['active_days']} active days", "#5AA9FF"),
@@ -179,19 +179,19 @@ def wrapped_svg(s, user):
         w = 300 * v / tot
         p.append(f'<rect x="{x:.1f}" y="348" width="{max(w - 2, 1):.1f}" height="12" rx="3" fill="{s["colors"].get(name, GREEN)}"/>')
         x += w
-    ly = 388
-    lx = 48
-    for name, v in s["langs"][:4]:
-        label = f"{name} {100 * v / tot:.0f}%"
+    # legend: fixed 2x2 grid that stays left of the tiles (which start at x=404)
+    for i, (name, v) in enumerate(s["langs"][:4]):
+        lx = 48 + (i % 2) * 160
+        ly = 386 + (i // 2) * 22
+        label = f"{fit(name, 14)} {100 * v / tot:.0f}%"
         p.append(f'<circle cx="{lx + 5}" cy="{ly - 4}" r="5" fill="{s["colors"].get(name, GREEN)}"/>')
         p.append(f'<text x="{lx + 15}" y="{ly}" fill="{TEXT}" font-family="{FONT}" font-size="12">{esc(label)}</text>')
-        lx += 18 + len(label) * 7
     # tiles 3x2
     tw, th, gx, gy, x0, y0 = 220, 170, 16, 16, 404, 40
     for i, (label, value, sub, acc) in enumerate(tiles):
         tx = x0 + (i % 3) * (tw + gx)
         ty = y0 + (i // 3) * (th + gy)
-        fs = 34 if len(value) <= 8 else (28 if len(value) <= 10 else 23)
+        fs = 34 if len(value) <= 8 else (28 if len(value) <= 10 else (23 if len(value) <= 12 else 18))
         p.append(f'<g transform="translate({tx} {ty})">'
                  f'<rect width="{tw}" height="{th}" rx="16" fill="{acc}" fill-opacity=".13" stroke="{acc}" stroke-opacity=".45"/>'
                  f'<rect x="18" y="20" width="28" height="4" rx="2" fill="{acc}"/>'
