@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 540 250" width="540" height="250" role="img" aria-labelledby="t">
+<title id="t">Top languages: TypeScript 62%, JavaScript 20%, Python 8%, PHP 7%, Kotlin 2%</title>
+<style>
+.b{fill:#1ED760;transform-box:fill-box;transform-origin:bottom;animation:eq 1.1s ease-in-out infinite alternate}
+@keyframes eq{0%{transform:scaleY(.25)}50%{transform:scaleY(1)}100%{transform:scaleY(.45)}}
+.bc{fill:#1ED760;transform-box:fill-box;transform-origin:center;animation:eq 1.1s ease-in-out infinite alternate}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#112921"/><stop offset="1" stop-color="#0d1117"/></linearGradient>
+<linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1ED760"/><stop offset="1" stop-color="#78fbb5"/></linearGradient></defs>
+<rect x="1" y="1" width="538" height="248" rx="18" fill="url(#bg)" stroke="#255844"/>
+<text x="26" y="40" fill="#1ED760" font-family="'Courier New', monospace" font-size="13" letter-spacing="3">TOP GENRES</text>
+<text x="514" y="40" fill="#5f7a6d" font-family="'Courier New', monospace" font-size="11" text-anchor="end">LANGUAGES · BY CODE SIZE</text>
+<rect x="26.0" y="56" width="300.8" height="10" rx="3" fill="#3178c6"/>
+<rect x="328.8" y="56" width="97.3" height="10" rx="3" fill="#f1e05a"/>
+<rect x="428.1" y="56" width="37.8" height="10" rx="3" fill="#3572A5"/>
+<rect x="467.9" y="56" width="32.8" height="10" rx="3" fill="#4F5D95"/>
+<rect x="502.7" y="56" width="9.3" height="10" rx="3" fill="#A97BFF"/>
+<circle cx="32" cy="95" r="6" fill="#3178c6"/>
+<text x="46" y="100" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="14">TypeScript</text>
+<text x="256" y="100" fill="#c9d1d9" font-family="'Courier New', monospace" font-size="13" text-anchor="end">62.0%</text>
+<rect x="26" y="110" width="230" height="5" rx="2.5" fill="#1b2a23"/>
+<rect x="26" y="110" width="230" height="5" rx="2.5" fill="#3178c6"/>
+<circle cx="284" cy="95" r="6" fill="#f1e05a"/>
+<text x="298" y="100" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="14">JavaScript</text>
+<text x="508" y="100" fill="#c9d1d9" font-family="'Courier New', monospace" font-size="13" text-anchor="end">20.3%</text>
+<rect x="278" y="110" width="230" height="5" rx="2.5" fill="#1b2a23"/>
+<rect x="278" y="110" width="75" height="5" rx="2.5" fill="#f1e05a"/>
+<circle cx="32" cy="139" r="6" fill="#3572A5"/>
+<text x="46" y="144" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="14">Python</text>
+<text x="256" y="144" fill="#c9d1d9" font-family="'Courier New', monospace" font-size="13" text-anchor="end">8.2%</text>
+<rect x="26" y="154" width="230" height="5" rx="2.5" fill="#1b2a23"/>
+<rect x="26" y="154" width="30" height="5" rx="2.5" fill="#3572A5"/>
+<circle cx="284" cy="139" r="6" fill="#4F5D95"/>
+<text x="298" y="144" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="14">PHP</text>
+<text x="508" y="144" fill="#c9d1d9" font-family="'Courier New', monospace" font-size="13" text-anchor="end">7.1%</text>
+<rect x="278" y="154" width="230" height="5" rx="2.5" fill="#1b2a23"/>
+<rect x="278" y="154" width="26" height="5" rx="2.5" fill="#4F5D95"/>
+<circle cx="32" cy="183" r="6" fill="#A97BFF"/>
+<text x="46" y="188" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="14">Kotlin</text>
+<text x="256" y="188" fill="#c9d1d9" font-family="'Courier New', monospace" font-size="13" text-anchor="end">2.3%</text>
+<rect x="26" y="198" width="230" height="5" rx="2.5" fill="#1b2a23"/>
+<rect x="26" y="198" width="9" height="5" rx="2.5" fill="#A97BFF"/>
+</svg>
